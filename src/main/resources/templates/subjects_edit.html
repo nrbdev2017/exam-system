@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="ISO-8859-1" />
+        <title>Edit Subject | EMS</title>
+        <link rel="icon" type="image/x-icon" th:href="@{/img/logo.png}" />
+        <link th:href="@{/css/main.css}" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="flex flex-col w-full h-screen">
+            <!-- NAVIGATION -->
+            <div class="flex w-full">
+                <nav class="top-nav">
+                    <div class="top-nav-brand">
+                        <img
+                            class=""
+                            th:src="@{/img/logo.png}"
+                            width="54"
+                            height="54"
+                        />
+                        <span class="">EMS</span>
+                    </div>
+                    <div class="top-nav-menu">
+                        <div class="">
+                            <a class="" th:href="@{/exams}"> Exams </a>
+                            <a class="" th:href="@{/students}"> Students </a>
+                            <a class="" th:href="@{/subjects}"> Subjects </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <!-- CONTENT BODY -->
+            <div class="flex w-full h-full bg-blue-100">
+                <!-- SIDE BAR -->
+                <div class="w-72 border-r-2 border-slate-200">
+                    <div class="flex h-full flex-col bg-slate-100">
+                        <!-- MODULE HEADER -->
+                        <div class="self-center py-2">
+                            <h2>STUDENTS</h2>
+                        </div>
+
+                        <!-- SIDE BAR MENU -->
+                        <ul class="flex-grow">
+                            <li class="px-2 py-1 hover:bg-blue-100">
+                                <a class="" th:href="@{/subjects/list}">
+                                    Subjects List
+                                </a>
+                            </li>
+                            <li class="px-2 py-1 hover:bg-blue-100">
+                                <a class="" th:href="@{/subjects/add}">
+                                    Add Subject
+                                </a>
+                            </li>
+                            <li class="px-2 py-1 bg-blue-200 hover:bg-blue-300">
+                                <a class="" th:href="#"> Edit Subject </a>
+                            </li>
+                            <li class="px-2 py-1 hover:bg-blue-100">
+                                <a
+                                    class=""
+                                    th:href="@{/subjects/categories/list}"
+                                >
+                                    Categories List
+                                </a>
+                            </li>
+                            <li class="px-2 py-1 hover:bg-blue-100">
+                                <a
+                                    class=""
+                                    th:href="@{/subjects/categories/add}"
+                                >
+                                    Add Category
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- MAIN PAGE CONTENT -->
+                <div class="flex-grow pl-2 h-full bg-slate-50">
+                    <!-- FUNCTION HEADER -->
+                    <div class="">
+                        <h2 class="uppercase">Edit Subject Details</h2>
+                    </div>
+                    <!-- FUNCTION DETAILS -->
+                    <div class="">
+                        <form
+                            th:action="@{/subjects/} + ${subject.id} + @{/edit}"
+                            th:object="${subject}"
+                            method="post"
+                            class="w-full max-w-lg"
+                        >
+                            <div class="flex flex-wrap -mx-3 mb-6">
+                                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                                    <label
+                                        class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                                        for="grid-first-name"
+                                    >
+                                        Subject Name
+                                    </label>
+                                    <input
+                                        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-2 px-3 mb-3 leading-tight focus:outline-none focus:bg-white"
+                                        id="grid-first-name"
+                                        type="text"
+                                        name="name"
+                                        th:field="*{name}"
+                                    />
+                                </div>
+                                <div class="w-full md:w-1/2 px-3">
+                                    <label
+                                        class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                                        for="grid-last-name"
+                                    >
+                                        Subject Code
+                                    </label>
+                                    <input
+                                        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-2 px-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                        id="grid-last-name"
+                                        name="subjectCode"
+                                        type="text"
+                                        th:field="*{subjectCode}"
+                                    />
+                                </div>
+                            </div>
+                            <div class="flex w-full">
+                                <div class="">
+                                    <button
+                                        type="submit"
+                                        class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-1 text-center"
+                                    >
+                                        Submit
+                                    </button>
+                                    &ensp;&ensp;
+                                    <button
+                                        type="reset"
+                                        class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-1 text-center"
+                                    >
+                                        Reset
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOOTER -->
+            <div class="flex justify-center py-4 bg-sky-200">
+                <footer>
+                    &copy;2023 &bull; drift secondary &bull; some rights
+                    reserved
+                </footer>
+            </div>
+        </div>
+    </body>
+</html>
