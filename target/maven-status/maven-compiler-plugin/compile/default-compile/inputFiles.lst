@@ -1,0 +1,17 @@
+/home/php/Documents/intellij/git/exam-system/src/main/java/ke/drift/exam/student/dto/ExamResultDTO.java
+/home/php/Documents/intellij/git/exam-system/src/main/java/ke/drift/exam/student/controllers/StudentExamResultController.java
+/home/php/Documents/intellij/git/exam-system/src/main/java/ke/drift/exam/student/repositories/StudentSubjectResultRepository.java
+/home/php/Documents/intellij/git/exam-system/src/main/java/ke/drift/exam/ServletInitializer.java
+/home/php/Documents/intellij/git/exam-system/src/main/java/ke/drift/exam/student/controllers/StudentController.java
+/home/php/Documents/intellij/git/exam-system/src/main/java/ke/drift/exam/student/services/StudentSubjectResultServicesImpl.java
+/home/php/Documents/intellij/git/exam-system/src/main/java/ke/drift/exam/student/models/StudentSubjectResult.java
+/home/php/Documents/intellij/git/exam-system/src/main/java/ke/drift/exam/student/services/StudentExamResultServices.java
+/home/php/Documents/intellij/git/exam-system/src/main/java/ke/drift/exam/student/services/StudentServices.java
+/home/php/Documents/intellij/git/exam-system/src/main/java/ke/drift/exam/ExamApplication.java
+/home/php/Documents/intellij/git/exam-system/src/main/java/ke/drift/exam/student/repositories/StudentExamResultRepository.java
+/home/php/Documents/intellij/git/exam-system/src/main/java/ke/drift/exam/student/services/StudentSubjectResultServices.java
+/home/php/Documents/intellij/git/exam-system/src/main/java/ke/drift/exam/student/services/StudentExamResultServicesImpl.java
+/home/php/Documents/intellij/git/exam-system/src/main/java/ke/drift/exam/student/models/Student.java
+/home/php/Documents/intellij/git/exam-system/src/main/java/ke/drift/exam/student/models/StudentExamResult.java
+/home/php/Documents/intellij/git/exam-system/src/main/java/ke/drift/exam/student/services/StudentServicesImpl.java
+/home/php/Documents/intellij/git/exam-system/src/main/java/ke/drift/exam/student/repositories/StudentRepository.java
