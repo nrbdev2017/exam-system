@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="ISO-8859-1" />
+        <title>Academic Years List | EMS</title>
+        <link rel="icon" type="image/x-icon" th:href="@{/img/logo.png}" />
+        <script th:src="@{/js/ag-grid-community.min.js}"></script>
+        <link th:href="@{/css/main.css}" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="flex flex-col w-full h-screen">
+            <!-- NAVIGATION -->
+            <div class="flex w-full">
+                <nav class="top-nav">
+                    <div class="top-nav-brand">
+                        <img
+                            class=""
+                            th:src="@{/img/logo.png}"
+                            width="54"
+                            height="54"
+                        />
+                        <span class="">EMS</span>
+                    </div>
+                    <div class="top-nav-menu">
+                        <div class="">
+                            <a class="" th:href="@{/exams}"> Exams </a>
+                            <a class="" th:href="@{/students}"> Students </a>
+                            <a class="" th:href="@{/subjects}"> Subjects </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <!-- CONTENT BODY -->
+            <div class="flex w-full h-full bg-blue-100">
+                <!-- SIDE BAR -->
+                <div class="w-72 border-r-2 border-slate-200">
+                    <div class="flex h-full flex-col bg-slate-100">
+                        <!-- MODULE HEADER -->
+                        <div class="self-center py-2 uppercase">
+                            <h2>exams</h2>
+                        </div>
+
+                        <!-- SIDE BAR MENU -->
+                        <ul class="flex-grow">
+                            <li class="px-2 py-1 hover:bg-blue-100">
+                                <a class="" th:href="@{/exams/results/add}">
+                                    Enter Exam Result
+                                </a>
+                            </li>
+                            <li class="px-2 py-1 bg-blue-200 hover:bg-blue-300">
+                                <a class="" th:href="@{/exams/years/list}">
+                                    Academic Years
+                                </a>
+                            </li>
+                            <li class="px-2 py-1 hover:bg-blue-100">
+                                <a class="" th:href="@{/exams/years/add}">
+                                    Add Year
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- MAIN PAGE CONTENT -->
+                <div class="flex-grow pl-2 h-full bg-slate-50">
+                    <!-- FUNCTION HEADER -->
+                    <div class="">
+                        <h2 class="uppercase">academic years list</h2>
+                    </div>
+                    <!-- FUNCTION DETAILS -->
+                    <div class="flex">
+                        <div class="w-full h-full">
+                            <div
+                                id="yearsGrid"
+                                style="height: 700px; width: 900px"
+                                class="ag-theme-alpine"
+                            ></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOOTER -->
+            <div class="flex justify-center py-4 bg-sky-200">
+                <footer>
+                    &copy;2023 &bull; drift secondary &bull; some rights
+                    reserved
+                </footer>
+            </div>
+        </div>
+
+        <!-- PAGE SCRIPTS -->
+        <script th:inline="javascript">
+            /*<![CDATA[*/
+
+            class ViewCellRenderer {
+                init(params) {
+                    this.params = params;
+
+                    this.eGui = document.createElement('button');
+                    this.eGui.innerHTML =
+                        '<button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-1 text-center">View</button>';
+
+                    this.btnClickedHandler = this.btnClickedHandler.bind(this);
+                    this.eGui.addEventListener('click', this.btnClickedHandler);
+                }
+
+                getGui() {
+                    return this.eGui;
+                }
+
+                btnClickedHandler(event) {
+                    const editUrl =
+                        'http://localhost:8080/exams/years/' +
+                        this.params.data.id +
+                        '/edit';
+                    window.location.href = editUrl;
+                }
+
+                destroy() {
+                    this.eGui.removeEventListener(
+                        'click',
+                        this.btnClickedHandler
+                    );
+                }
+            }
+
+            // specify the data
+            const rowData = /*[[${allYears}]]*/ 'default';
+
+            const columnDefs = [
+                { field: 'name', headerName: 'Year', flex: 1 },
+                {
+                    field: 'actions',
+                    cellRenderer: ViewCellRenderer,
+                    cellRendererParams: {},
+                },
+            ];
+
+            // let the grid know which columns and what data to use
+            const gridOptions = {
+                columnDefs: columnDefs,
+                rowData: rowData,
+            };
+
+            // setup the grid after the page has finished loading
+            document.addEventListener('DOMContentLoaded', () => {
+                const gridDiv = document.querySelector('#yearsGrid');
+                new agGrid.Grid(gridDiv, gridOptions);
+            });
+
+            /*]]>*/
+        </script>
+    </body>
+</html>
