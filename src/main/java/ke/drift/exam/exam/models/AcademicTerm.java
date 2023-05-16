@@ -1,6 +1,7 @@
 package ke.drift.exam.exam.models;
 
 import javax.persistence.*;
+import java.sql.Date;
 
 @Entity
 public class AcademicTerm {
@@ -11,9 +12,9 @@ public class AcademicTerm {
     @Column(unique=true)
     private String termName;
 
-    private String termStart;
+    private Date termStart;
 
-    private String termEnd;
+    private Date termEnd;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "year_id")
@@ -35,19 +36,19 @@ public class AcademicTerm {
         this.termName = termName;
     }
 
-    public String getTermStart() {
+    public Date getTermStart() {
         return termStart;
     }
 
-    public void setTermStart(String termStart) {
+    public void setTermStart(Date termStart) {
         this.termStart = termStart;
     }
 
-    public String getTermEnd() {
+    public Date getTermEnd() {
         return termEnd;
     }
 
-    public void setTermEnd(String termEnd) {
+    public void setTermEnd(Date termEnd) {
         this.termEnd = termEnd;
     }
 

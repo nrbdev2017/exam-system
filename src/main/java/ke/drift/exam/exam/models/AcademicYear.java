@@ -1,6 +1,7 @@
 package ke.drift.exam.exam.models;
 
 import javax.persistence.*;
+import java.sql.Date;
 
 @Entity
 public class AcademicYear {
@@ -11,9 +12,9 @@ public class AcademicYear {
     @Column(unique=true)
     private String yearName;
 
-    private String yearStart;
+    private Date yearStart;
 
-    private String yearEnd;
+    private Date yearEnd;
 
     public long getId() {
         return id;
@@ -31,19 +32,19 @@ public class AcademicYear {
         this.yearName = yearName;
     }
 
-    public String getYearStart() {
+    public Date getYearStart() {
         return yearStart;
     }
 
-    public void setYearStart(String yearStart) {
+    public void setYearStart(Date yearStart) {
         this.yearStart = yearStart;
     }
 
-    public String getYearEnd() {
+    public Date getYearEnd() {
         return yearEnd;
     }
 
-    public void setYearEnd(String yearEnd) {
+    public void setYearEnd(Date yearEnd) {
         this.yearEnd = yearEnd;
     }
 }
